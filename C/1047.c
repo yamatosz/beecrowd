@@ -1,31 +1,26 @@
 #include <stdio.h>
 
+void tempo(int inicio_h, int inicio_m, int fim_h, int fim_m)
+{
+    int diferenca;
+
+    diferenca = ((fim_h * 60) + fim_m) - ((inicio_h * 60) + inicio_m);
+
+    if (diferenca <= 0)
+    {
+        diferenca += 24 * 60;
+    }
+
+    printf("O JOGO DUROU %d HORA(S) E %d MINUTO(S)\n", diferenca / 60, diferenca % 60);
+}
+
 int main()
 {
-    int hinicial, minicial, sinicial;
-    int hfinal, mfinal, sfinal;
-    int tempo, horas, minutos;
+    int hora_inicio, minuto_inicio, hora_final, minuto_final;
 
-    scanf("%d %d %d %d", &hinicial, &minicial, &hfinal, &mfinal);
+    scanf("%d %d %d %d", &hora_inicio, &minuto_inicio, &hora_final, &minuto_final);
 
-    if (hfinal <= hinicial && mfinal <= minicial)
-    {
-        hfinal = hfinal + 24;
-    }
-    else if (mfinal <= mfinal)
-    {
-        mfinal = mfinal + 60;
-        hfinal = hfinal - 1;
-    }
-
-    sinicial = (hinicial * 3600) + (minicial * 60);
-    sfinal = (hfinal * 3600) + (mfinal * 60);
-
-    tempo = (sfinal - sinicial);
-    horas = tempo / 3600;
-    minutos = (tempo - (horas * 3600)) / 60;
-
-    printf("O JOGO DUROU %d HORA(S) %d MINUTO(S)\n", horas, minutos);
+    tempo(hora_inicio, minuto_inicio, hora_final, minuto_final);
 
     return 0;
 }
