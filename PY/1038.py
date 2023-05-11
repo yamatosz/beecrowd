@@ -1,15 +1,12 @@
-## --------------------------- URI 1038 LANCHE -------------------------------------
+# BEE 1038 - Lanche - Python
+def get_total(cod, quantidade):
+    produtos = [4, 4.5, 5, 2, 1.5]
+    return produtos[cod-1]*quantidade
+
+
 cod, quantidade = input().split()
 cod = int(cod)
 quantidade = int(quantidade)
 
-if cod == 1:
-    print(f'Total: R$ {quantidade*4.0:.2f}')
-elif cod == 2:
-    print(f'Total: R$ {quantidade*4.5:.2f}')
-elif cod == 3:
-    print(f'Total: R$ {quantidade*5.0:.2f}')
-elif cod == 4:
-    print(f'Total: R$ {quantidade*2.0:.2f}')
-elif cod == 5:
-    print(f'Total: R$ {quantidade*1.5:.2f}')
+total = get_total(cod, quantidade)
+print(f'Total: R$ {total:.2f}')
